@@ -1,13 +1,22 @@
 import streamlit as st
 import google.generativeai as genai
 import urllib.parse 
-import re # <-- ADDED: For regular expression search
+import re 
+from pathlib import Path # <--- ADDED: For robust path handling
 
+# --- Configuration ---
 GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-2.5-flash')
-robot_img = "test.png"
-user_img = "user.png"
+
+# --- Image Path FIX ---
+# Calculate the absolute path for the images relative to this script's location.
+# IMPORTANT: Ensure the actual file names are exactly 'test.png' and 'user.png'
+# (case-sensitive) in the same directory as this script.
+BASE_DIR = Path(__file__).parent
+robot_img = str(BASE_DIR / "test.png")
+user_img = str(BASE_DIR / "user.png")
+# --- End Image Path FIX ---
 
 # --- Function to clear chat history on topic change (FIXED to preserve pins) ---
 def clear_chat_history():
@@ -44,7 +53,8 @@ def main():
     # --- 1. Call initialization
     initialize_session_state() 
     
-    st.image(robot_img, width=200)
+    # st.image now uses the absolute path constructed above, which should resolve the error.
+    st.image(robot_img, width=200) 
     st.title("Kikkuo")
     st.write("As you clearly don't know what to draw today, I won't mind helping you I guess. Hmmph!")
     # --- MODIFIED: Reset chat when topic changes ---
