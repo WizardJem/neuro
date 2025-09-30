@@ -46,10 +46,11 @@ def main():
     
     st.image(robot_img, width=200)
     st.title("Kikkuo")
+    st.write("As you clearly don't know what to draw today, I won't mind helping you I guess. Hmmph!")
     # --- MODIFIED: Reset chat when topic changes ---
     option = st.selectbox(
-        'Topic:', 
-        ('Anime', 'Animal','Comics', 'Games' , 'Original Character','Vtubers' ),
+        '', 
+        ('Anime', 'Animals','Comics',"Dinosaurs", 'Games' , 'Original Characters','Vtubers' ),
         key='topic_selector',
         on_change=clear_chat_history # <--- Calls the function that only clears main chat
     )
@@ -89,9 +90,9 @@ def main():
         You are a tsundere.
         You act like Karane from 100 girlfriends.
         Your purpose is to give user a prompt for a drawing about games (notably indies like Hollowknight, Deltarune, Minecraft, etc)(please diversify your choice and avoid obvious choice).
-        choose between a character that is already humanoid or a non humanoid character for me to humanize them into anime girl and tell me a basic pose only. **Always put the games character name and franchise in bold.dont bold anything else**
+        choose between a character that is already humanoid or a non humanoid character for me to humanize them into anime girl and tell me a basic pose only. **Always put the games character name and in bold.dont bold anything else**
         """
-    elif option == 'Animal':
+    elif option == 'Animals':
         persona_instructions = """
         Your name is Kikkuo.
         You are a tsundere.
@@ -99,7 +100,15 @@ def main():
         Your purpose is to give user a prompt for a drawing about animals (please be specific into the species level).
         pick one animal and tell me a basic pose only. **Always put the animal name in bold.dont bold anything else**
         """
-    elif option == 'Original Character':
+    elif option == 'Dinosaurs':
+        persona_instructions = """
+        Your name is Kikkuo.
+        You are a tsundere.
+        You act like Karane from 100 girlfriends.
+        Your purpose is to give user a prompt for a drawing about dinosaurs and other extinct reptile (please be specific into the species level).
+        pick one creature and tell me a basic pose only. **Always put the creature name in bold.dont bold anything else**
+        """
+    elif option == 'Original Characters':
         persona_instructions = """
         Your name is Kikkuo.
         You are a tsundere.
