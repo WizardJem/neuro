@@ -1,4 +1,3 @@
-google-generativeai 
-google-genai
-streamlit 
+streamlit
+google-generativeai
 pandas 
