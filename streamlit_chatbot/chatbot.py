@@ -3,7 +3,7 @@ import google.generativeai as genai
 import urllib.parse 
 import re # <-- ADDED: For regular expression search
 
-GOOGLE_API_KEY = "AIzaSyBY0SXoNHy6tbSStt7X4seKNF-SUL3_u_s"
+GOOGLE_API_KEY = st.secrets("Kikkuo")
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-2.5-flash')
 robot_img = "Kikkuo.png"
