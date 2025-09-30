@@ -6,7 +6,7 @@ import re # <-- ADDED: For regular expression search
 GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-2.5-flash')
-robot_img = "Kikkuo.png"
+robot_img = "test.png"
 user_img = "user.png"
 
 # --- Function to clear chat history on topic change (FIXED to preserve pins) ---
